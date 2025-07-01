@@ -6,7 +6,7 @@ using System.Collections;
 using UnityEngine.ProBuilder.Shapes;
 /*
 *Author: Richard Wong Zhi Hui
-*Date: 15/6/2025
+*Date: 30/6/2025
 *Description: Interactions of player with items and environment
 */
 
@@ -132,9 +132,9 @@ public class PlayerBehaviour : MonoBehaviour
     /// <returns></returns>
     IEnumerator Introduction()
     {
-        IntroText.text = "You awaken in a smoke-filled Surgery Room, with no recollection of how you got there.\n\n The last thing you remember is entering the Interview room for a job at the Parasol Corporation.\n\n\n Escape ";
+        IntroText.text = "You lost control of your spaceship & crash landed on an unknown planet. \n\n Objectives:\n\n 1.Find a way to repair the ship \n\n 2.Survive.";
         IntroPanel.SetActive(true);
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(5);
         IntroPanel.SetActive(false);
     }
     void Update()
