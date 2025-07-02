@@ -40,7 +40,7 @@ public class PlayerBehaviour : MonoBehaviour
     DoorBehaviour currentDoor = null;
     MutagenBehaviour currentMutagen = null;
     GunBehaviour currentGun = null;
-    ExitBehaviour currentExit = null;
+    RockBehaviour currentRock = null;
     OxygenBehaviour currentOxygen = null;
     
     //Onscreen overlay for taking damage
@@ -173,12 +173,12 @@ public class PlayerBehaviour : MonoBehaviour
                 currentGun = hitInfo.collider.gameObject.GetComponent<GunBehaviour>();
                 canInteract = true;
             }
-            //if its the exit
-            else if (hitInfo.collider.gameObject.CompareTag("Win"))
+            //if its a rock
+            else if (hitInfo.collider.gameObject.CompareTag("Rock"))
             {
 
                 InteractMessage.text = "[E] Exit";
-                currentExit = hitInfo.collider.gameObject.GetComponent<ExitBehaviour>();
+                currentRock = hitInfo.collider.gameObject.GetComponent<RockBehaviour>();
                 canInteract = true;
             }
             //Reset variables to default if it hits non interactables
@@ -384,8 +384,8 @@ public class PlayerBehaviour : MonoBehaviour
                 Transform showGunTransform = showGun.transform;
                 showGunTransform.SetParent(GunParentFollow.transform);
             }
-            //Check if exit
-            else if (currentExit != null)
+            //Check if rock
+            else if (currentRock != null)
             {
                 if (mutagenScore >= 10)
                 {

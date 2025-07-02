@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2815340166110429072
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15.081209
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15.081209
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 15.081209
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 66.19454
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -197.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.25357544
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.024730455
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9624332
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.09386319
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 9.679
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 150.009
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -5.542
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
+      propertyPath: m_Name
+      value: Rock_M4Unity (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: efec7ab1aaebcc448a41daa4a1adfe4c, type: 3}
