@@ -111,7 +111,6 @@ public class EnemyBehaviour : MonoBehaviour
     /// </summary>
     private void ChasePlayer()
     {
-        Debug.Log("Sound played" + SoundPlayed);
         PlaySound();
         transform.LookAt(Player);
         agent.SetDestination(Player.position);
@@ -124,8 +123,6 @@ public class EnemyBehaviour : MonoBehaviour
     public void TakeDamage(float damage)
     {
         EnemyHealth -= damage;
-        Debug.Log("Enemy:" + EnemyHealth);
-        Debug.Log("Max: " + MaxEnemyHealth);
         healthBar.UpdateHealthBar(EnemyHealth, MaxEnemyHealth);
         if (EnemyHealth <= 0 && !isLooted)
         {

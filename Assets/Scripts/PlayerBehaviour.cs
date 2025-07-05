@@ -40,8 +40,9 @@ public class PlayerBehaviour : MonoBehaviour
     DoorBehaviour currentDoor = null;
     MutagenBehaviour currentMutagen = null;
     GunBehaviour currentGun = null;
-    RockBehaviour currentRock = null;
     OxygenBehaviour currentOxygen = null;
+    GameObject currentRock = null;
+    private Rigidbody rb = null;
     
     //Onscreen overlay for taking damage
     public Image HealthImpact;
@@ -176,10 +177,33 @@ public class PlayerBehaviour : MonoBehaviour
             //if its a rock
             else if (hitInfo.collider.gameObject.CompareTag("Rock"))
             {
-
-                InteractMessage.text = "[E] Exit";
-                currentRock = hitInfo.collider.gameObject.GetComponent<RockBehaviour>();
-                canInteract = true;
+                if (mutagenScore >= 10)
+                {
+                    InteractMessage.text = "Pushable";
+                    currentRock = hitInfo.collider.gameObject;
+                    rb = currentRock.GetComponent<Rigidbody>();
+                    rb.isKinematic = false;
+                    canInteract = true;
+                }
+                else
+                {
+                    InteractMessage.text = "Not Strong Enough";
+                }
+            }
+            else if (hitInfo.collider.gameObject.CompareTag("Win"))
+            {
+                if (mutagenScore >= 10)
+                {
+                    InteractMessage.text = "Pushable";
+                    currentRock = hitInfo.collider.gameObject;
+                    rb = currentRock.GetComponent<Rigidbody>();
+                    rb.isKinematic = false;
+                    canInteract = true;
+                }
+                else
+                {
+                    InteractMessage.text = "Not Strong Enough\n\nNeed " + mutagensLeft + " more Mutagen";
+                }
             }
             //Reset variables to default if it hits non interactables
             else if (hitInfo.collider.gameObject.CompareTag("Untagged"))
@@ -201,8 +225,13 @@ public class PlayerBehaviour : MonoBehaviour
         currentMutagen = null;
         currentDoor = null;
         currentGun = null;
+        currentRock = null;
         canInteract = false;
         InteractMessage.text = null;
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+        }
 
     }
     /// <Damage Screen summary>
@@ -385,19 +414,19 @@ public class PlayerBehaviour : MonoBehaviour
                 showGunTransform.SetParent(GunParentFollow.transform);
             }
             //Check if rock
-            else if (currentRock != null)
-            {
-                if (mutagenScore >= 10)
-                {
-                    //Win Screen
-                    StartCoroutine(WinLoadNew());
-                }
-                else
-                {
-                    //Requirements screen
-                    StartCoroutine(NeedMore());
-                }
-            }
+            // else if (currentRock != null)
+            // {
+            //     if (mutagenScore >= 10)
+            //     {
+            //         //Win Screen
+            //         StartCoroutine(WinLoadNew());
+            //     }
+            //     else
+            //     {
+            //         //Requirements screen
+            //         StartCoroutine(NeedMore());
+            //     }
+            // }
         }
     }
     /// < WinLoadNew summary>
@@ -421,30 +450,6 @@ public class PlayerBehaviour : MonoBehaviour
         DeathScreen.SetActive(false);
         //Restart Scene
         SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
-    }
-    /// <NeedMore summary>
-    /// When mutagen insufficient, request for more, with different messages depending on amount
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator NeedMore()
-    {
-        if (mutagensLeft > 1)
-        {
-            WinScreen.SetActive(true);
-            WinMessage.text = "You're not strong enough, find " + mutagensLeft + " more Mutagens";
-            yield return new WaitForSeconds(3);
-            WinScreen.SetActive(false);
-            WinMessage.text = null;
-        }
-        else
-        {
-            WinScreen.SetActive(true);
-            WinMessage.text = "You're not strong enough, find the Last Mutagen";
-            yield return new WaitForSeconds(3);
-            WinScreen.SetActive(false);
-            WinMessage.text = null;
-        }
-
     }
     //Add to mutagen score when collected
     public void ModifyMutagenScore(int amt)
